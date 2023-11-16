@@ -1,38 +1,72 @@
-.App {
-  text-align: center;
+
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #FFF7ED;
+  font-family: "Inter", sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+/*Temporal Header Styling*/
+.header--container{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: blanchedalmond;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.nav-bar{
+  display: flex;
+  flex-basis: 50%;
+  justify-content: space-evenly;
+}
+
+.site-logo{
+  flex-basis: 50%;
+}
+
+/*Temporal Home Styling*/
+
+.home-container{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 10px;
   color: white;
+  background-image: url(./assets/images/home_background.png);
+  background-position: center;
+  background-size: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+/*Temporal About Styling*/
+
+.about-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.about--div__explore{
+  display: flex;
+  flex-direction: column;
+  background-color: blanchedalmond;
 }
+
+/*Temporal Footer Styling*/
+.footer-container{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: gray;
+  color: white;
+
+}
+
+
+
