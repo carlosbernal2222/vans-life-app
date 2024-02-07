@@ -1,30 +1,26 @@
 import React from "react";
 import "./Vans.css";
-import {useSearchParams, Link} from "react-router-dom";
+import {useSearchParams, Link, useLoaderData} from "react-router-dom";
 import {getVans} from "../../api/api";
 
 
-//Loader to fetch data before Route loading
-// export async function loader() {
-//     try {
-//         // Fetch vans data using the getVans function
-//         const vansData = await getVans();
-//         // Return the fetched data
-//         return vansData;
-//     } catch (error) {
-//         // Handle any errors
-//         console.error('Error fetching vans:', error);
-//         throw error;
-//     }
-// }
+//Loader to fetch data from server
+export function loader(){
+    return getVans();
+}
 export default function Vans(){
 
+    // const [vans, setVans] = React.useState([]);
+
     const [searchParams, setSearchParams] = useSearchParams();
-    const [vans, setVans] = React.useState([]);
-    const [loading, setLoading] = React.useState(false);
-    const [error, setError] = React.useState(null);
+
+    // const [loading, setLoading] = React.useState(false);
+
+    // const [error, setError] = React.useState(null);
+
+    const vans = useLoaderData()
+
     const typeFilter = searchParams.get("type");
-    // const vans = useLoaderData()
 
 
 
@@ -40,22 +36,23 @@ export default function Vans(){
     // }
 
     //Api fetch from getVans function
-    React.useEffect(()=> {
-        const fetchData = async()=>{
-            setLoading(true)
-            try{
-                const vansData = await getVans();
-                setVans(vansData)
-            }catch (error){
-                setError(error)
-                console.error('Error fetching Vans', error)
-            }finally {
-                setLoading(false)
-            }
-        }
+    // React.useEffect(()=> {
+    //     const fetchData = async()=>{
+    //         setLoading(true)
+    //         try{
+    //             const vansData = await getVans();
+    //             setVans(vansData)
+    //         }catch (error){
+    //             setError(error)
+    //             console.error('Error fetching Vans', error)
+    //         }finally {
+    //             setLoading(false)
+    //         }
+    //     }
+    //
+    //     fetchData();
+    // },[]);
 
-        fetchData();
-    },[]);
 
     //Vans mapping
     const displayedVans = typeFilter
@@ -110,13 +107,13 @@ export default function Vans(){
         })
     }
 
-    if(loading){
-        return <h1>Loading...</h1>
-    }
+    // if(loading){
+    //     return <h1>Loading...</h1>
+    // }
 
-    if(error){
-        return <h1>There is an Error: {error.message}...</h1>
-    }
+    // if(error){
+    //     return <h1>There is an Error: {error.message}...</h1>
+    // }
 
   return(
       <div className="van-list-container">
