@@ -1,6 +1,6 @@
 import React from "react";
 import "./Vans.css";
-import {useSearchParams, useLoaderData, Link} from "react-router-dom";
+import {useSearchParams, Link} from "react-router-dom";
 import {getVans} from "../../api/api";
 
 
@@ -20,11 +20,11 @@ import {getVans} from "../../api/api";
 export default function Vans(){
 
     const [searchParams, setSearchParams] = useSearchParams();
-    // const [vans, setVans] = React.useState([]);
+    const [vans, setVans] = React.useState([]);
     const [loading, setLoading] = React.useState(false);
     const [error, setError] = React.useState(null);
     const typeFilter = searchParams.get("type");
-    const vans = useLoaderData()
+    // const vans = useLoaderData()
 
 
 

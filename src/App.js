@@ -3,7 +3,7 @@ import "./App.css"
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/home/Home";
 import About from "./pages/about/About";
-import Vans, {loader as vansLoader} from "./pages/vans/Vans"
+import Vans from "./pages/vans/Vans"
 import VanDetail from "./pages/vans/VanDetail";
 import Layout from "./components/Layout"
 import HostDashboard from "./pages/host/HostDashboard";
@@ -26,7 +26,7 @@ function App() {
                 <Route path="/" element={<Layout/>}>
                     <Route index element={<Home/>}/>
                     <Route path="about" element={<About/>}/>
-                    <Route path="vans" element={<Vans/>} loader={vansLoader}/>
+                    <Route path="vans" element={<Vans/>} />
                     <Route path="vans/:id" element={<VanDetail/>}/>
 
                     {/* Host Routes */}
